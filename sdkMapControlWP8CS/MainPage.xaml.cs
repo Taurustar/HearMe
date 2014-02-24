@@ -154,7 +154,7 @@ namespace sdkMapControlWP8CS
 
         private void goToReproducir(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/AudioPlayerWindow", UriKind.RelativeOrAbsolute));
+            NavigationService.Navigate(new Uri("/AudioPlayerWindow.xaml", UriKind.RelativeOrAbsolute));
 
         }
 
@@ -434,6 +434,11 @@ namespace sdkMapControlWP8CS
         private void goToEscuchar(object sender, System.Windows.Input.GestureEventArgs e)
         {
         	NavigationService.Navigate(new Uri("/SoundBoard.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void goToSignOut(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+        	NavigationService.Navigate(new Uri("/LogOut.xaml", UriKind.RelativeOrAbsolute));
         }
 
         

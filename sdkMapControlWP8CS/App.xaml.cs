@@ -30,6 +30,8 @@ namespace sdkMapControlWP8CS
     "WjdXlZnvZytJLjoOkMnDseLbFznskG19"
  );
 
+        public static Facebook.Client.Controls.FacebookSessionState session;
+
         public static MobileServiceClient MobileServiceFacebook = new MobileServiceClient(
      "https://hearmeauth.azure-mobile.net/",
     "WTrjAqtMCjViAVIvhmGkQulEeRIqWkn56"

@@ -7,6 +7,8 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Facebook.Client.Controls;
+using Facebook.Client;
 using Microsoft.WindowsAzure.MobileServices;
 
 
@@ -14,54 +16,25 @@ namespace sdkMapControlWP8CS
 {
     public partial class LogIn : PhoneApplicationPage
     {
+
+
+        FacebookSessionClient session = new FacebookSessionClient(LoginButton.ApplicationIdProperty.ToString());
+
         public LogIn()
         {
             InitializeComponent();
         }
 
-
-        private async void OnBtnFacebookAccountClick(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                
-                ////TODO: Call LoginAsync: 
-                await App.MobileServiceFacebook.LoginAsync(MobileServiceAuthenticationProvider.Facebook); 
-               // if(App.mobileService.CurrentUser != null)
-                //txtStatus.Text = string.Format("Logged in with: {0}", App.mobileService.CurrentUser.UserId);
-                NavigationService.Navigate(new Uri("/Menu.xaml", UriKind.RelativeOrAbsolute));
-
-            }
-            catch (InvalidOperationException iopEx)
-            {
-                MessageBox.Show(iopEx.Message);
-            }
-        }
 		
 		private void OnSessionStateChanged(object sender, Facebook.Client.Controls.SessionStateChangedEventArgs e)
 		{
-    	if(e.SessionState == Facebook.Client.Controls.FacebookSessionState.Opened)
-           NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
-            else NavigationService.Navigate(new Uri("/LogIn.xaml", UriKind.RelativeOrAbsolute));
+            
+            App.session = e.SessionState;
+            if (App.session == Facebook.Client.Controls.FacebookSessionState.Opened)
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
 		}
 
-       
-        private void OnBtnLogoutClick(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                ////TODO: add logout
-                if (App.MobileServiceFacebook.CurrentUser != null && App.MobileServiceFacebook.CurrentUser.UserId != null)
-                     App.MobileServiceFacebook.Logout();
-
-                MessageBox.Show("Logged out");
-            }
-            catch (InvalidOperationException iopEx)
-            {
-                MessageBox.Show(iopEx.Message);
-            }
-        }
-
+      
         private void justGetMeIn(object sender, System.Windows.Input.GestureEventArgs e)
         {
         	 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
