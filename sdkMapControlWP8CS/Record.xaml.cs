@@ -93,6 +93,7 @@ namespace sdkMapControlWP8CS
 
         //sacar audioName!!!
         private Geoposition myGeoposition;
+        private Stream stream;
 
         // Using the CameraCaptureTask to allow the user to capture a todo item image //
         CameraCaptureTask cameraCaptureTask;
@@ -287,7 +288,7 @@ namespace sdkMapControlWP8CS
             Debug.WriteLine("INSERT AUDIO");
             string errorString = string.Empty;
 
-            if (imageStream != null)
+            if (stream != null)
             {
                 Debug.WriteLine(" audiostream != null");
                 // Set blob properties of TodoItem.
@@ -328,11 +329,11 @@ namespace sdkMapControlWP8CS
                     // Upload the new image as a BLOB from the stream.
 
                    
-                    InserData(container);
-                    /*CloudBlockBlob blobFromSASCredential =
+                    
+                    CloudBlockBlob blobFromSASCredential =
                         container.GetBlockBlobReference(location.ResourceName);
-                    await blobFromSASCredential.UploadFromStreamAsync(_audioStream);
-                    */
+                    await blobFromSASCredential.UploadFromStreamAsync(stream);
+                    
                      Debug.WriteLine("4");
                     // When you request an SAS at the container-level instead of the blob-level,
                     // you are able to upload multiple streams using the same container credentials.
@@ -472,6 +473,7 @@ namespace sdkMapControlWP8CS
                 //transforma el buffer en wav
                 var bytes = buffer.GetWavAsByteArray(_recorder.SampleRate);
 
+                stream = new MemoryStream(bytes);
                 _audioStream = isoStore.CreateFile(_tempFileName);
 
                 //escribe con bytes de 0 el audiostream, lo libera

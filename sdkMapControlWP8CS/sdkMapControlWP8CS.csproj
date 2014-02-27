@@ -167,6 +167,11 @@
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
+    <None Include="sdkMapControlWP8CS_2014_02_26_10_04_25.sap" />
+    <None Include="sdkMapControlWP8CS_2014_02_26_10_09_34.sap" />
+    <None Include="sdkMapControlWP8CS_2014_02_26_12_47_42.sap" />
+    <None Include="sdkMapControlWP8CS_2014_02_26_12_53_32.sap" />
+    <None Include="sdkMapControlWP8CS_2014_02_26_12_53_34.sap" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />

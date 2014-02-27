@@ -16,12 +16,18 @@ namespace sdkMapControlWP8CS
         public Location _lugar;
         private MainPage _mainPage;
                                                                                                                                                                                                                                                                                  
-        const int MIN_ZOOM_LEVEL = 1;
+        
+        //Estos valores constantes ayudan a posicionar el canvas dentro del mapa 
+        //para que el globo quede en la posicion correcta
         const double LEFT = -75;
         const double TOP = -275;
-        const int MAX_ZOOM_LEVEL = 20;
-        const int MIN_ZOOMLEVEL_FOR_LANDMARKS = 14;
 
+        /// <summary>
+        /// El Constructor de los pines dentro del mapa
+        /// </summary>
+        /// <param name="canvas">Necesitas un Canvas donde vas a dibujar los diferentes childrens dentro del pin, botones, texto etc</param>
+        /// <param name="lugar">Necesitas capturar la localizacion ya entregada por tu gps...</param>
+        /// <param name="mainPage">Hace referenca a la main page que es donde esta el mapa</param>
         public Pines(Canvas canvas, Location lugar, MainPage mainPage)
         {
             myCanvas = canvas;
@@ -45,16 +51,18 @@ namespace sdkMapControlWP8CS
             else titulo.Text = "Hear Me";
             //titulo.IsEnabled = false;
             Canvas.SetTop(titulo, TOP + 20);
-            Canvas.SetLeft(titulo, LEFT + 30);
+            Canvas.SetLeft(titulo, LEFT + 40);
 
             myCanvas.Children.Add(titulo);
 
             Image image2 = new Image();
-            image2.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/pin.png", UriKind.RelativeOrAbsolute));
+            image2.Source = _lugar.ImageUri != null ? new System.Windows.Media.Imaging.BitmapImage(new Uri(_lugar.ImageUri, UriKind.RelativeOrAbsolute)) : new System.Windows.Media.Imaging.BitmapImage(new Uri("Assets/pin.png", UriKind.RelativeOrAbsolute));
             //lugarGlobal = lugar;
             //image2.Tap += goToReproducir;
             image2.Opacity = 0.8;
-            image2.Stretch = System.Windows.Media.Stretch.None;
+            image2.Width = 100;
+            image2.Height = 100;
+            image2.Stretch = System.Windows.Media.Stretch.UniformToFill;
             Canvas.SetTop(image2, TOP + 80);
             Canvas.SetLeft(image2, LEFT + 40);
 
@@ -62,6 +70,11 @@ namespace sdkMapControlWP8CS
             image2.Tap += image2_Tap;
         }
 
+        /// <summary>
+        /// Asigna la propiedad de TAP a cada una de las imagenes que se dibujan dentro del pin
+        /// </summary>
+        /// <param name="sender">Habla sobre cual de todos ellos en realidad hizo la accion</param>
+        /// <param name="e">gestura de tap</param>
         private void image2_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             MainPage.lugarGlobal = _lugar;
