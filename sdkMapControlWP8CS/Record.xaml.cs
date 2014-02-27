@@ -163,8 +163,8 @@ namespace sdkMapControlWP8CS
             myGeoposition = await myGeolocator.GetGeopositionAsync();
             Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
 
-            Lati.Text = myGeoposition.Coordinate.Latitude.ToString();
-            Long.Text = myGeoposition.Coordinate.Longitude.ToString();
+           // Lati.Text = myGeoposition.Coordinate.Latitude.ToString();
+           // Long.Text = myGeoposition.Coordinate.Longitude.ToString();
         }
 
 
@@ -208,8 +208,8 @@ namespace sdkMapControlWP8CS
             Location location = new Location();
             location.Latitude = myGeoposition.Coordinate.Latitude;
             location.Longitude = myGeoposition.Coordinate.Longitude;
-            location.Title = Name.Text;
-            location.description = Description.Text;
+           // location.Title = Name.Text;
+           // location.description = Description.Text;
 
             // Send the item to be inserted. When blob properties are set this
             // generates an SAS in the response.
@@ -489,6 +489,11 @@ namespace sdkMapControlWP8CS
         private void PlayAudioClick(object sender, RoutedEventArgs e)
         {
             AudioPlayer.Play();
+        }
+
+        private void goToEdition(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	NavigationService.Navigate(new Uri(String.Format("/AudioEdition.xaml?AudioUri={0}",_audioStream),UriKind.RelativeOrAbsolute));
         }
 
         

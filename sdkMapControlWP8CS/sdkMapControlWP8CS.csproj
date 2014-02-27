@@ -94,6 +94,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AudioEdition.xaml.cs">
+      <DependentUpon>AudioEdition.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AudioPlayerWindow.xaml.cs">
       <DependentUpon>AudioPlayerWindow.xaml</DependentUpon>
     </Compile>
@@ -131,6 +134,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="AudioEdition.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AudioPlayerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -311,6 +318,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="HearMe 480X800 172_Images\Image.png" />
+    <Resource Include="HearMe 480X800 172_Images\Image1.png" />
+    <Resource Include="HearMe 480X800 172_Images\Image2.png" />
     <Resource Include="HearMe 480X800_Images\Image.png" />
     <Resource Include="HearMe 480X800_Images\Image1.png" />
     <Resource Include="HearMe 480X800_Images\Image2.png" />

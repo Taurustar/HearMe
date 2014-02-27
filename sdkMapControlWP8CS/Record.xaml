@@ -597,11 +597,7 @@
         			Unchecked="RecordAudioUnchecked"
         			Content="" Canvas.Left="85.734" Canvas.Top="110.908" Width="249" Height="248.998" BorderBrush="{x:Null}" />
                 <Button x:Name="PlayAudio" Content="" Click="PlayAudioClick" Canvas.Left="52" Canvas.Top="365" Width="88.281" Height="88.317" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,1.239" />
-                <Button x:Name="BotonNext" Content="" FontSize="20" Click="LocationSave" Canvas.Left="288.968" Canvas.Top="645.778" Width="114.18" Height="64.933" BorderBrush="{x:Null}"/>
-                <TextBox x:Name="Name" Text="Name" FontSize="20" Canvas.Left="-15" Canvas.Top="468" Width="418"/>
-                <TextBlock x:Name="Lati" Text="Latitude" FontSize="20" Canvas.Left="10" Canvas.Top="613.007" Width="480" Foreground="Black"/>
-                <TextBlock x:Name="Long" Text="Longitude" FontSize="20" Canvas.Left="10" Canvas.Top="635.95" Width="480" Foreground="Black"/>
-                <TextBox x:Name="Description" Text="Description" FontSize="20" Canvas.Left="-15" Canvas.Top="510" Width="418"/>
+                <Button x:Name="BotonNext" Content="" FontSize="20" Click="goToEdition" Canvas.Left="288.968" Canvas.Top="645.778" Width="114.18" Height="64.933" BorderBrush="{x:Null}"/>
                 <Path Data="F1M30.342,33.556C24.162,33.556 19.138,28.531 19.138,22.352 19.138,16.172 24.162,11.149 30.342,11.149 36.52,11.149 41.544,16.172 41.544,22.352 41.544,28.531 36.52,33.556 30.342,33.556 M56.31,2.538L20.114,2.538 20.114,0 9.346,0 9.346,2.538 5.178,2.538C2.32,2.538,0,5.393,0,8.912L0,32.817C0,36.334,2.32,39.189,5.178,39.189L56.31,39.189C59.168,39.189,61.488,36.334,61.488,32.817L61.488,8.912C61.488,5.393,59.168,2.538,56.31,2.538" Fill="#FFFF8000" Height="39.189" Canvas.Left="288.968" Canvas.Top="393.366" Width="61.487" UseLayoutRounding="False" Tap="ButtonCaptureImage_Click"/>
             </Canvas>
             <Canvas x:Name="edition" Height="799.5" Canvas.Left="0" Canvas.Top="0.5" Width="479.5" d:IsHidden="True" Visibility="Collapsed">
